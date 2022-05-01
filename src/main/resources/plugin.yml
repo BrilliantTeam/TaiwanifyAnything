@@ -1,0 +1,5 @@
+name: TaiwanifyEveryItem
+version: '${project.version}'
+main: tech.skyouo.plugins.taiwanifyeveryitem.TaiwanifyEveryItem
+depend: [PlaceholderAPI]
+api-version: 1.18
