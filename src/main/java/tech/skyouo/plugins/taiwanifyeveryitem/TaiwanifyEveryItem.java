@@ -12,45 +12,24 @@ import java.util.HashMap;
 public final class TaiwanifyEveryItem extends JavaPlugin {
     public static HashMap<String, String> itemLocale;
     public static HashMap<String, String> blockLocale;
+    public static HashMap<String, String> entityLocale;
+    public static HashMap<String, String> enchantmentLocale;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
 
         try {
-            Type type = new TypeToken<HashMap<String, String>>(){}.getType();
+            itemLocale = loadJSON("/item.zh-TW.json");
 
-            itemLocale = new Gson().fromJson(
-                    new JsonReader(
-                            new BufferedReader(new InputStreamReader(
-                                    getClass().getResourceAsStream("/item.zh-TW.json")
-                            ))
-                    ),
-                    type
-            );
+            blockLocale = loadJSON("/block.zh-TW.json");
 
-            blockLocale = new Gson().fromJson(
-                    new JsonReader(
-                            new BufferedReader(new InputStreamReader(
-                                    getClass().getResourceAsStream("/block.zh-TW.json")
-                            ))
-                    ),
-                    type
-            );
+            entityLocale = loadJSON("/entity.zh-TW.json");
 
-            for (String item:
-                 itemLocale.keySet()) {
-                getLogger().info("Loaded item: " + item);
-            }
-
-            for (String item:
-                    blockLocale.keySet()) {
-                getLogger().info("Loaded block: " + item);
-            }
+            enchantmentLocale = loadJSON("/enchantment.zh-TW.json");
 
             assert getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
-
-            getServer().getPluginManager().registerEvents(new ChatEventTest(), this);
+            
             new SomeExpansion().register();
         } catch (AssertionError e) {
             getLogger().warning("您尚未安裝 PlaceholderAPI!");
@@ -61,5 +40,16 @@ public final class TaiwanifyEveryItem extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    private HashMap<String, String> loadJSON(String path) {
+        return new Gson().fromJson(
+                new JsonReader(
+                        new BufferedReader(new InputStreamReader(
+                                getClass().getResourceAsStream(path)
+                        ))
+                ),
+                new TypeToken<HashMap<String, String>>(){}.getType()
+        );
     }
 }
