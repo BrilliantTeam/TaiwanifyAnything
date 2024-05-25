@@ -1,19 +1,11 @@
 {
-    "enchantment.level.1": "I",
-    "enchantment.level.10": "X",
-    "enchantment.level.2": "II",
-    "enchantment.level.3": "III",
-    "enchantment.level.4": "IV",
-    "enchantment.level.5": "V",
-    "enchantment.level.6": "VI",
-    "enchantment.level.7": "VII",
-    "enchantment.level.8": "VIII",
-    "enchantment.level.9": "IX",
     "enchantment.minecraft.aqua_affinity": "親水性",
     "enchantment.minecraft.bane_of_arthropods": "節肢剋星",
     "enchantment.minecraft.binding_curse": "綁定詛咒",
     "enchantment.minecraft.blast_protection": "爆炸保護",
+    "enchantment.minecraft.breach": "破甲",
     "enchantment.minecraft.channeling": "喚雷",
+    "enchantment.minecraft.density": "緻密",
     "enchantment.minecraft.depth_strider": "深海漫遊",
     "enchantment.minecraft.efficiency": "效率",
     "enchantment.minecraft.feather_falling": "輕盈",
@@ -44,8 +36,10 @@
     "enchantment.minecraft.smite": "不死剋星",
     "enchantment.minecraft.soul_speed": "靈魂疾走",
     "enchantment.minecraft.sweeping": "橫掃之刃",
+    "enchantment.minecraft.sweeping_edge": "橫掃之刃",
     "enchantment.minecraft.swift_sneak": "迅捷潛行",
     "enchantment.minecraft.thorns": "尖刺",
     "enchantment.minecraft.unbreaking": "耐久",
-    "enchantment.minecraft.vanishing_curse": "消失詛咒"
+    "enchantment.minecraft.vanishing_curse": "消失詛咒",
+    "enchantment.minecraft.wind_burst": "風爆"
 }

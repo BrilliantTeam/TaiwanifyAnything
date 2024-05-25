@@ -14,6 +14,6 @@
 
 **The preceding plugins are PlaceholderAPI**
 
-**PlaceholderAPI為其前置插件**
+**PlaceholderAPI 為其前置插件**
 
 
