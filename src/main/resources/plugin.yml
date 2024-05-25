@@ -2,5 +2,6 @@ name: TaiwanifyEveryItem
 version: '${project.version}'
 author: NCT_Skyouo, RiceChen_
 main: tech.skyouo.plugins.taiwanifyeveryitem.TaiwanifyEveryItem
+folia-supported: true
 depend: [PlaceholderAPI]
 api-version: 1.18
