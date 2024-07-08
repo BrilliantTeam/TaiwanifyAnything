@@ -42,13 +42,14 @@ public class SomeExpansion extends PlaceholderExpansion {
             if (result != null) return result;
         }
 
-        if (params.contains(":")) {
-            String category = params.split(":")[0].toLowerCase();
+        if (params.contains("-")) {
+            String category = params.split("-")[0].toLowerCase();
 
             return switch (category) {
                 case "entity" -> otherLocale(getEntityByName(params));
                 case "enchantment" -> otherLocale(getEnchantmentByName(params));
                 case "item" -> returnLocale(Material.matchMaterial(params));
+                case "block" -> returnLocale(Material.matchMaterial(params));
                 default -> null;
             };
         }
