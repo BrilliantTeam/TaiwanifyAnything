@@ -42,15 +42,27 @@ public class SomeExpansion extends PlaceholderExpansion {
             if (result != null) return result;
         }
 
-        EntityType entityType = getEntityByName(params);
-        if (entityType != null) return otherLocale(entityType);
+        if (params.contains(":")) {
+            String category = params.split(":")[0].toLowerCase();
+
+            return switch (category) {
+                case "entity" -> otherLocale(getEntityByName(params));
+                case "enchantment" -> otherLocale(getEnchantmentByName(params));
+                case "item" -> returnLocale(Material.matchMaterial(params));
+                default -> null;
+            };
+        }
+
+
         Enchantment enchantment = getEnchantmentByName(params);
         if (enchantment != null) return otherLocale(enchantment);
         if (params.contains("level.")) return otherLocale(params);
         Material material = Material.matchMaterial(params);
-        if (material == null) return null;
+        if (material != null) return returnLocale(material);
+        EntityType entityType = getEntityByName(params);
+        if (entityType != null) return otherLocale(entityType);
 
-        return returnLocale(material);
+        return null;
     }
 
     private String toKey(Material material) {
