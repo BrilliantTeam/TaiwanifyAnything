@@ -22,7 +22,6 @@ public class RomanNumber {
         map.put(5, "V");
         map.put(4, "IV");
         map.put(1, "I");
-
     }
 
     public final static String toRoman(int number) {

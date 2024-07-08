@@ -6,8 +6,10 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class SomeExpansion extends PlaceholderExpansion {
 
@@ -44,14 +46,18 @@ public class SomeExpansion extends PlaceholderExpansion {
 
         if (params.contains("-")) {
             String category = params.split("-")[0].toLowerCase();
+            String value = Arrays.stream(params.split("-")).skip(1).collect(Collectors.joining());
 
-            return switch (category) {
-                case "entity" -> otherLocale(getEntityByName(params));
-                case "enchantment" -> otherLocale(getEnchantmentByName(params));
-                case "item" -> returnLocale(Material.matchMaterial(params));
-                case "block" -> returnLocale(Material.matchMaterial(params));
-                default -> null;
-            };
+            try {
+                return switch (category) {
+                    case "entity" -> otherLocale(getEntityByName(value));
+                    case "enchantment" -> otherLocale(getEnchantmentByName(value));
+                    case "item", "block" -> returnLocale(Material.matchMaterial(value));
+                    default -> null;
+                };
+            } catch (Exception exception) {
+                return null;
+            }
         }
 
 
